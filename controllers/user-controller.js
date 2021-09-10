@@ -56,7 +56,7 @@ const userController = {
         })
     },
 
-    //removes a user from the database Delete /api/users/:id
+    //removes a user from the database: Delete /api/users/:id
     deleteUser(req, res){
         User.deleteOne({_id: req.params.id}).then((user)=>{
             if(!user){
@@ -68,7 +68,7 @@ const userController = {
         });
     },
 
-    //adds a friend to a user's friend array Post /api/users/:userId/friends/:friendId
+    //adds a friend to a user's friend array: Post /api/users/:userId/friends/:friendId
     addFriend(req, res){
         User.findById(req.params.friendId)
         .then((friend)=>{
@@ -92,7 +92,7 @@ const userController = {
             res.json({message: "Friend or user ID may be incorrect", err});
         })
     },
-    //removes a friend from a user's friend array Delete /api/users/:userId/friends/:friendId
+    //removes a friend from a user's friend array: Delete /api/users/:userId/friends/:friendId
     removeFriend(req, res){
         User.findById(req.params.friendId)
         .then((friend)=>{

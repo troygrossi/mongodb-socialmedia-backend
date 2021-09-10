@@ -1,6 +1,8 @@
 const {Thought, User} = require("../models");
 
 const thoughtController = {
+
+    //gets all thoughts and their corresponding reactions: Get /api/thoughts
     getThoughts(req, res){
         Thought.find({}).select("-__v").then((thoughts)=>{
             if(!thoughts){
@@ -12,6 +14,7 @@ const thoughtController = {
         }).catch((error)=> res.json(error));
     },
 
+    //gets a single thought and its corresponding reactions: Get /api/thoughts/:id
     getThought(req, res){
         Thought.findById(req.params.id).then((thought)=>{
             if(!thought){
@@ -23,6 +26,7 @@ const thoughtController = {
         });
     },
 
+        //adds a new thought: Post /api/thoughts
     addThought(req, res){
         Thought.create(req.body)
         .then(({_id})=>{
@@ -42,6 +46,7 @@ const thoughtController = {
         }).catch((error)=> res.json(error));
     },
 
+        //edits a thoughts's data: Put /api/thoughts/:id
     editThought(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.id},
@@ -59,6 +64,7 @@ const thoughtController = {
             });
     },
 
+        //removes a thought from the database: Delete /api/users/:id
     deleteThought(req, res){
         Thought.deleteOne({_id: req.params.id})
         .then((thought)=>{
@@ -70,7 +76,7 @@ const thoughtController = {
             res.json({message: "Check if id is valid", err});
         });
     },
-
+        //adds a reaction to a thought: Post /api/thoughts/:thoughtId/reactions
     addReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
@@ -85,7 +91,7 @@ const thoughtController = {
             res.json({message: "Check if id is valid", err});
         });
     },
-
+        //delets a reaction from a thought: Delete /api/thoughts/:thoughtId/reactions/reactionId
     deleteReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
