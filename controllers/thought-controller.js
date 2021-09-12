@@ -26,7 +26,7 @@ const thoughtController = {
         });
     },
 
-        //adds a new thought: Post /api/thoughts
+        //adds a new thought: Post /api/thoughts/:userId
     addThought(req, res){
         Thought.create(req.body)
         .then(({_id})=>{
@@ -95,7 +95,7 @@ const thoughtController = {
     deleteReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
-            {$pull: {reactions: req.params.reactionId}},
+            {$pull: {reactions: {_id: req.params.reactionId}}},
             {new: true},
         ).then((thought)=>{
             if(!thought){

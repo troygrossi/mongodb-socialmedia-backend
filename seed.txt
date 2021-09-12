@@ -1,0 +1,61 @@
+{
+    "username": "Troy2",
+    "email": "anotheremail@gmail.com",
+	"thoughts":[],
+	"friends": []
+	
+}
+Thought1:
+{
+    "username": "Troy",
+    "thoughtText": "This is a thought",
+	"reactions": []
+}
+Thought2:
+{
+    "username": "Troy2",
+    "thoughtText": "second thought",
+	"reactions": []
+}
+Reaction1:
+{
+	"username": "Billy",
+	"reactionBody": "this is a reaction"
+
+}
+Reaction2:
+{
+	"username": "Bob",
+	"reactionBody": "second reaction"
+
+}
+
+ - Get: /api/users 
+            - gets all users and their corresponding thoughts
+        - Get: /api/users/:id 
+            - gets a single user and their corresponding thoughts
+        - Post: /api/users 
+            - adds a new user
+        - Put: /api/users/:id 
+            - edits a user's data
+        - Delete: /api/users/:id 
+            - removes a user from the database
+        - Post: /api/users/:userId/friends/:friendId 
+            - adds a friend to a user's friend array
+        - Delete: /api/users/:userId/friends/:friendId 
+            - removes a friend from a user's friend array
+    - thought-routes:
+        - Get: /api/thoughts
+            - gets all thoughts and their corresponding reactions
+        - Get: /api/thoughts/:id
+            - gets a single thought and its corresponding reactions
+        - Post: /api/thoughts/:userId
+            - adds a new thought
+        - Put: /api/thoughts/:id
+            - edits a thoughts's data
+        - Delete: /api/users/:id    
+            - removes a thought from the database
+        - Post: /api/thoughts/:thoughtId/reactions
+            - adds a reaction to a thought
+        - Delete: /api/thoughts/:thoughtId/reactions/:reactionId
+            - delets a reaction from a thought

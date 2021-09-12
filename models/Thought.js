@@ -26,7 +26,6 @@ const ThoughtSchema = new Schema({
             required: true,
             maxlength: 280,
         },
-        reactionId: Schema.Types.ObjectId,
         createdAt: {
             type: Date,
             default: Date.now,

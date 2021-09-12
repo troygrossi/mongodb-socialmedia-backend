@@ -4,6 +4,13 @@
 
 ## Developed By: Troy Grossi
 
+## Walkthrough: 
+- Download from link for much better video quality
+- seed.txt contains the dummy data used in this walkthrough
+### Part 1: https://drive.google.com/file/d/1_chsadvuEj63z2iPTG0tunS243-P0dSO/view
+### Part 2: https://drive.google.com/file/d/1iRqiWrOvJtx9sRfXB3z2FVO0wq8-1f1s/view
+
+
 </br>
 </br>
 
@@ -55,7 +62,7 @@ Download the project from github. Must have node, mongoDb, and npm downloaded on
             - gets all thoughts and their corresponding reactions
         - Get: /api/thoughts/:id
             - gets a single thought and its corresponding reactions
-        - Post: /api/thoughts
+        - Post: /api/thoughts/:userId
             - adds a new thought
         - Put: /api/thoughts/:id
             - edits a thoughts's data
@@ -63,7 +70,7 @@ Download the project from github. Must have node, mongoDb, and npm downloaded on
             - removes a thought from the database
         - Post: /api/thoughts/:thoughtId/reactions
             - adds a reaction to a thought
-        - Delete: /api/thoughts/:thoughtId/reactions/reactionId
+        - Delete: /api/thoughts/:thoughtId/reactions/:reactionId
             - delets a reaction from a thought
     -body-structure:
         -Refer to models folder for json body structure
